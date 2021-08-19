@@ -1,0 +1,5 @@
+{
+  id: group.id,
+  name: group.name,
+  debut_date: group.debut_date,
+}

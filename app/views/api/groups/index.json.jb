@@ -1,0 +1,15 @@
+json = @groups.map do |group|
+  result = render partial: "group.json.jb", locals: { group: group }
+  result[:members] = group.actors.map do |actor|
+    inner_result = render partial: "api/actors/actor.json.jb", locals: { actor: actor}
+    inner_result[:images] = actor.images.map do |image|
+      render partial: "api/images/image.json.jb", locals: { image: image}
+    end
+    inner_result
+  end
+  result[:images] = group.images.map do |image|
+    render partial: "api/images/image.json.jb", locals: { image: image}
+  end
+  result
+end
+json

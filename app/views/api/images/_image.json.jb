@@ -1,0 +1,8 @@
+{
+  id: image.id,
+  actor_id: image.actor_id,
+  group_id: image.group_id,
+  event_id: image.event_id,
+  location_id: image.location_id,
+  image_url: image.image_url
+}

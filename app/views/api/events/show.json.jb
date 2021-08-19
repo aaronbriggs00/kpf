@@ -1,0 +1,21 @@
+json = render partial: "event.json.jb", locals: {event: @event}
+json[:actors] = @event.actors.map do |actor|
+  result = render partial: "api/actors/actor.json.jb", locals: {actor: actor}
+  result[:image] = nil
+  if actor.images != []
+    result[:image] = actor.images.first.image_url
+    if actor.images.event_specific_image(@event.id) != []
+      result[:image] = actor.images.event_specific_image(@event.id).first.image_url
+    end
+  end
+  result
+end
+json[:location] = render partial: "api/locations/location.json.jb", locals: {location: @event.location}
+json[:location][:image] = "testing"
+if @event.location.images != []
+  json[:location][:image] = @event.location.images.first.image_url
+  if @event.location.images.event_specific_image(@event.id) != []
+    json[:location][:image] = @event.location.images.event_specific_image(@event.id).first.image_url
+  end
+end
+json

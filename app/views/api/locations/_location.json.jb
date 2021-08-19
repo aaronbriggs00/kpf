@@ -1,0 +1,6 @@
+{
+  id: location.id,
+  title: location.title,
+  description: location.description,
+  is_public: location.is_public
+}

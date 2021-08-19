@@ -1,0 +1,11 @@
+json = @locations.map do |location|
+  result = render partial: "location.json.jb", locals: {location: location} 
+  if location.images != [ ]
+    result[:image] = location.images.first.image_url
+  else
+    result[:image] = nil
+  end
+  result
+end
+
+json

@@ -1,0 +1,12 @@
+json = @actors.map do |actor|
+  result = render partial: "actor.json.jb", locals: { actor: actor }
+  result[:events] = actor.events.map do |event|
+    render partial: "api/events/event.json.jb", locals: { event: event }
+  end
+  result[:image] = nil
+  if actor.images != []
+    result[:image] = actor.images.order("RANDOM()").first.image_url
+  end
+  result
+end
+json

@@ -1,0 +1,8 @@
+json = render partial: "actor.json.jb", locals: { actor: @actor }
+json[:events] = @actor.events.map do |event|
+  render partial: "api/events/event.json.jb", locals: { event: event }
+end
+json[:images] = @actor.images.map do |image|
+  image.image_url
+end
+json

@@ -1,0 +1,16 @@
+json = render partial: "location.json.jb", locals: {location: @location}
+if @location.group
+  json[:group] = render partial: "api/groups/group.json.jb", locals: {group: @location.group}
+else
+  json[:group] = {    }
+end
+json[:actors] = @location.actors.map do |actor|
+  render partial: "api/actors/actor.json.jb", locals: {actor: actor}
+end
+json[:images] = @location.images.map do |image|
+  image.image_url
+end
+json[:events] = @location.events.map do |event|
+  render partial: "api/events/event.json.jb", locals: {event: event}
+end
+json

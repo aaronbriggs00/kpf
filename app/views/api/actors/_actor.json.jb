@@ -1,0 +1,17 @@
+{
+  id: actor.id,
+  name: actor.name,
+  group: actor.group_id,
+  stats: {
+    stat0: actor.stat0,
+    stat1: actor.stat1,
+    stat2: actor.stat2,
+    stat3: actor.stat3,
+    stat4: actor.stat4,
+    stat5: actor.stat5,
+    stat6: actor.stat6,
+    stat7: actor.stat7,
+    stat8: actor.stat8,
+    stat9: actor.stat9,
+  }
+}
