@@ -2,7 +2,10 @@ json = render partial: "actor.json.jb", locals: { actor: @actor }
 json[:events] = @actor.events.map do |event|
   render partial: "api/events/event.json.jb", locals: { event: event }
 end
-json[:images] = @actor.images.map do |image|
-  image.image_url
+if @actor.images != []
+  json[:images] = @actor.images.map do |image|
+    render partial: "api/images/image.json.jb", locals: { image: image }
+  end
+  json[:image] = @actor.images.order("RANDOM()").first.image_url
 end
 json

@@ -7,8 +7,8 @@ json = @groups.map do |group|
     end
     inner_result
   end
-  result[:images] = group.images.map do |image|
-    render partial: "api/images/image.json.jb", locals: { image: image}
+  if group.images != []
+    result[:image] = group.images.order("RANDOM()").first.image_url
   end
   result
 end
