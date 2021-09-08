@@ -3,5 +3,5 @@ class Event < ApplicationRecord
   has_many :event_actors, dependent: :destroy
   has_many :actors, through: :event_actors
 
-  belongs_to :location
+  belongs_to :location, optional: true
 end

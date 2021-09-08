@@ -1,7 +1,7 @@
 {
   id: actor.id,
   name: actor.name,
-  group: actor.group_id,
+  group: actor.group.name,
   stats: {
     stat0: actor.stat0,
     stat1: actor.stat1,
