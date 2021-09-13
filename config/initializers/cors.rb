@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost:8080', 'https://kpfnarration.netlify.app/'
+    origins 'localhost:8080', 'pedantic-beaver-221b0f'
 
     resource '*',
       headers: :any,
