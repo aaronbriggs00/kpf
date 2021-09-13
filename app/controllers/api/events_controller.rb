@@ -1,7 +1,11 @@
 class Api::EventsController < ApplicationController
   def index
     @events = Event.all.includes(:actors, :images)
-    render "index.json.jb", status: :ok
+    if params[:slim] == true
+      render "slim_index.json.jb", status: :ok
+    else
+      render "index.json.jb", status: :ok
+    end
   end
   def show
     @event = Event.find(params[:id])

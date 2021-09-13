@@ -10,6 +10,7 @@ class Api::ActorsController < ApplicationController
   def create
     @actor = Actor.create(
       name: params[:name],
+      birthday: params[:birthday],
       group_id: params[:group_id],
       stat0: params[:stat0],
       stat1: params[:stat1],
@@ -32,6 +33,7 @@ class Api::ActorsController < ApplicationController
     @actor = Actor.find(params[:id])
     @actor.name = params[:name] || @actor.name
     @actor.group_id = params[:group_id] || @actor.group_id
+    @actor.birthday = params[:birthday] || @actor.birthday
     @actor.stat0 = params[:stat0] || @actor.stat0
     @actor.stat1 = params[:stat1] || @actor.stat1
     @actor.stat2 = params[:stat2] || @actor.stat2

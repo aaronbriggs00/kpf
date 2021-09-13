@@ -2,7 +2,11 @@
   id: actor.id,
   name: actor.name,
   group: actor.group.name,
+  birthday: actor.birthday,
   stats: {
+    ovr: (actor.stat0 + actor.stat1 + actor.stat2 + actor.stat3 + actor.stat4 + actor.stat5 + actor.stat6 + actor.stat7 + actor.stat8 + actor.stat9)/10,
+    idol: (actor.stat0 + actor.stat1 + actor.stat2 + actor.stat3 + actor.stat4)/5,
+    visual: (actor.stat5 + actor.stat6 + actor.stat7 + actor.stat8 + actor.stat9)/5,
     stat0: actor.stat0,
     stat1: actor.stat1,
     stat2: actor.stat2,

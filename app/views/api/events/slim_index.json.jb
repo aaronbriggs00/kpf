@@ -1,0 +1,5 @@
+json = @events.map do |event|
+  result = render partial: "event.json.jb", locals: {event: event}
+  result
+end
+json
